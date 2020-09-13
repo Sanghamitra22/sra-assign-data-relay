@@ -95,7 +95,7 @@ char* device2(){
 
 
 
-    float dist = (rand()%100)+0.75*((float)rand()/RAND_MAX);
+    float dist1 = (rand()%100)+0.75*((float)rand()/RAND_MAX);
 
     char* switch_state;
 
@@ -113,7 +113,7 @@ char* device2(){
 
     char distance[20];
 
-    sprintf(distance,"%.2f",dist);
+    sprintf(distance,"%.2f",dist1);
 
     struct json_object *jobj;
 
@@ -147,7 +147,7 @@ void* device1_mosquitto(void * arg){
 
     int len;
 
-    //char* length = device1();
+  
 
     int a;
 
@@ -181,7 +181,7 @@ void* device1_mosquitto(void * arg){
 
     mosquitto_publish(mosq, NULL, topic, len, str, 1, false);
 
-    //printf("%d",len);
+  
 
     mosquitto_loop_start(mosq);
 
@@ -199,7 +199,7 @@ void* device2_mosquitto(void * arg){
 
     int len;
 
-    //char* length = device1();
+    
 
     int a;
 
@@ -227,13 +227,13 @@ void* device2_mosquitto(void * arg){
 
     }
 
-    //printf("We are now connected to the broker!\n");
+    
 
 
 
     mosquitto_publish(mosq, NULL, topic, len, str, 1, false);
 
-    //printf("%d",len);
+    
 
     mosquitto_loop_start(mosq);
 
@@ -273,7 +273,7 @@ int main(){
 
     for(int i=0;i<50;i++){
 
-        //delay(1);
+        
 
         pthread_join(thread_id[i], NULL);
 
