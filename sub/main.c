@@ -19,11 +19,11 @@
 
 void writing_in_file(const char* values, char* name){
 
-    FILE *fp;
+    FILE *fname;
 
-    fp = fopen(name,"a");
+    fname = fopen(name,"a");
 
-    if (fp == NULL)
+    if (fname == NULL)
 
     {
 
@@ -33,9 +33,9 @@ void writing_in_file(const char* values, char* name){
 
     }
 
-    fprintf(fp,"%s\n", values);
+    fprintf(fname,"%s\n", values);
 
-    fclose(fp);
+    fclose(fname);
 
 }
 
@@ -43,11 +43,11 @@ void writing_in_file(const char* values, char* name){
 
 void writing_in_file2(int values, char* name){
 
-    FILE *fp;
+    FILE *fname;
 
-    fp = fopen(name,"a");
+    fname = fopen(name,"a");
 
-    if (fp == NULL)
+    if (fname == NULL)
 
     {
 
@@ -57,9 +57,9 @@ void writing_in_file2(int values, char* name){
 
     }
 
-    fprintf(fp,"%d\n", values);
+    fprintf(fname,"%d\n", values);
 
-    fclose(fp);
+    fclose(fname);
 
 }
 
@@ -139,7 +139,7 @@ void parsed_data(char* message){
 
 void mosq_connect(struct mosquitto *mosq, void *obj, int a) {
 
-	//printf("ID: %d\n", * (int *) obj);
+	
 
 	if(a) {
 
@@ -205,7 +205,7 @@ int main() {
 
 	getchar();
 
-	//mosquitto_loop_stop(mosq, true);
+	
 
 
 
